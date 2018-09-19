@@ -18,16 +18,16 @@
       </xsd:element>
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="NewOperationRequest">
+  <wsdl:message name="ProcessOrderPlacementRequest">
     <wsdl:part element="tns:NewOperation" name="parameters"/>
   </wsdl:message>
-  <wsdl:message name="NewOperationResponse">
+  <wsdl:message name="ProcessOrderPlacementResponse">
     <wsdl:part element="tns:NewOperationResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:portType name="Orders">
-    <wsdl:operation name="NewOperation">
-      <wsdl:input message="tns:NewOperationRequest"/>
-      <wsdl:output message="tns:NewOperationResponse"/>
+    <wsdl:operation name="ProcessOrderPlacement">
+      <wsdl:input message="tns:ProcessOrderPlacementRequest"/>
+      <wsdl:output message="tns:ProcessOrderPlacementResponse"/>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="OrdersSOAP" type="tns:Orders">
