@@ -43,11 +43,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link OrderType }
+     * Create an instance of {@link BookType }
      * 
      */
-    public OrderType createOrderType() {
-        return new OrderType();
+    public BookType createBookType() {
+        return new BookType();
     }
 
     /**
@@ -59,19 +59,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link BookType }
-     * 
-     */
-    public BookType createBookType() {
-        return new BookType();
-    }
-
-    /**
      * Create an instance of {@link OrderItemType }
      * 
      */
     public OrderItemType createOrderItemType() {
         return new OrderItemType();
+    }
+
+    /**
+     * Create an instance of {@link OrderType }
+     * 
+     */
+    public OrderType createOrderType() {
+        return new OrderType();
     }
 
     /**

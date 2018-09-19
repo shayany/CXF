@@ -9,8 +9,5 @@
         <module name="apache-cxf-jax-ws-demo" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="apache-cxf-jax-ws-demo" target="1.6" />
-    </bytecodeTargetLevel>
   </component>
 </project>
