@@ -19,7 +19,7 @@
   </wsdl:portType>
   <wsdl:binding name="OrdersSOAP" type="tns:Orders">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="ProcessOrderPlacementRequest">
+    <wsdl:operation name="ProcessOrderPlacement">
       <soap:operation soapAction="http://www.evry.com/service/Orders/ProcessOrderPlacement"/>
       <wsdl:input>
         <soap:body use="literal"/>
