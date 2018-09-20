@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:jaxws="http://cxf.apache.org/jaxws"
+	   xsi:schemaLocation="
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml"/>
+
+	<context:component-scan base-package="com.evry.cxfdemo"/>
+	<bean id="defaultOrdersServer" class="com.evry.cxfdemo.orders.DefaultOrdersEndpoint"/>
+
+	<jaxws:server id="testOrdersServer"
+				  address="http://localhost:8080/apache-cxf-jax-ws-demo/services/orders"
+				  serviceBean="#defaultOrdersServer" serviceClass="com.evry.service.orders.Orders">
+		<jaxws:inInterceptors>
+			<ref bean="loggingInInterceptor"/>
+		</jaxws:inInterceptors>
+		<jaxws:outInterceptors>
+			<ref bean="loggingOutInterceptor"/>
+		</jaxws:outInterceptors>
+	</jaxws:server>
+	<bean id="loggingInInterceptor" class="org.apache.cxf.interceptor.LoggingInInterceptor" />
+	<bean id="loggingOutInterceptor" class="org.apache.cxf.interceptor.LoggingOutInterceptor" />
+
+	<jaxws:client id="testOrdersClient"
+				  address="http://localhost:8080/apache-cxf-jax-ws-demo/services/orders"
+				  serviceClass="com.evry.service.orders.Orders">
+		<jaxws:inInterceptors>
+			<ref bean="loggingInInterceptor" />
+		</jaxws:inInterceptors>
+		<jaxws:outInterceptors>
+			<ref bean="loggingOutInterceptor" />
+		</jaxws:outInterceptors>
+	</jaxws:client>
+</beans>
